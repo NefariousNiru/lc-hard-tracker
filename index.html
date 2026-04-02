@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode Hard Tracker</title>
+  <meta name="description" content="A sleek LeetCode hard tracker powered by CSV data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Static GitHub Pages site</p>
+        <h1>LC Hard Tracker</h1>
+        <p class="hero-text">
+          Clone this <a href="https://github.com/NefariousNiru/lc-hard-tracker.git" target="_blank" style="color: white;">Repo</a> and add problem to CSV. <br>
+          Mark problems as done and keep progress saved locally by <strong>LC #</strong>.
+        </p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-label">Problems</span>
+          <span id="totalCount" class="stat-value">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Done</span>
+          <span id="doneCount" class="stat-value">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Progress</span>
+          <span id="progressPct" class="stat-value">-</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="toolbar glass-card">
+      <div class="toolbar-left">
+        <input id="searchInput" type="search" placeholder="Search LC#, problem name, pattern..." />
+      </div>
+
+      <div class="toolbar-right">
+        <label class="toggle-chip">
+          <input id="doneOnlyToggle" type="checkbox" />
+          <span>Show done only</span>
+        </label>
+        <button id="expandAllBtn" class="ghost-btn">Expand all</button>
+        <button id="collapseAllBtn" class="ghost-btn">Collapse all</button>
+        <button id="resetDoneBtn" class="danger-btn">Reset done</button>
+      </div>
+    </section>
+
+    <main>
+      <section id="patternList" class="pattern-list" aria-live="polite"></section>
+    </main>
+  </div>
+</body>
+</html>
