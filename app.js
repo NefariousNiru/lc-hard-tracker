@@ -233,6 +233,16 @@ function bindToolbar() {
   });
 }
 
+function dedupeKeepLast(rows) {
+  const lastIndexByLc = new Map();
+
+  rows.forEach((row, index) => {
+    lastIndexByLc.set(row.lc, index);
+  });
+
+  return rows.filter((row, index) => lastIndexByLc.get(row.lc) === index);
+}
+
 function init() {
   bindToolbar();
 
@@ -241,7 +251,7 @@ function init() {
     header: true,
     skipEmptyLines: true,
     complete: (results) => {
-      rawRows = results.data.map(normalizeRow).filter((row) => row.lc && row.problemName);
+      rawRows = dedupeKeepLast(results.data.map(normalizeRow).filter((row) => row.lc && row.problemName));
       render();
     },
     error: () => {
