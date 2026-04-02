@@ -45,6 +45,7 @@ function normalizeRow(row) {
   return {
     lc,
     problemName: String(row["Problem Name"] || "").trim(),
+    link: String(row["Link"] || "").trim(),
     difficulty: String(row["Difficulty"] || "").trim(),
     whyHard: String(row["Why It's Hard (Solution Lens)"] || "").trim(),
     pattern: String(row["Pattern"] || "Other").trim(),
@@ -153,7 +154,11 @@ function render() {
                 <span class="diff-badge">${escapeHtml(row.difficulty || "Unknown")}</span>
               </div>
 
-              <div class="problem-name ${checked ? "done" : ""}">${escapeHtml(row.problemName)}</div>
+              <div class="problem-name ${checked ? "done" : ""}">
+                <a href="${escapeHtml(row.link)}" target="_blank">
+                  ${escapeHtml(row.problemName)}
+                </a>
+              </div>
               <div class="problem-why">${escapeHtml(row.whyHard || "No extra notes in CSV.")}</div>
             </div>
 

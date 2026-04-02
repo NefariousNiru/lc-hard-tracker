@@ -1,997 +1,255 @@
-﻿LC#,Problem Name,Difficulty,Why It's Hard (Solution Lens),Meta,Google,Amazon,Uber,Netflix,Pattern
-149,Max Points on a Line,Hard,GCD-normalized slope hashing + collinear edge cases; deeper than it looks,✓,✓,✓,,,Arrays & Hashmaps
-295,Find Median from Data Stream,Hard,Two-heap balancing with rebalance logic; classic system-design coding bridge,✓,✓,✓,,✓,Arrays & Hashmaps
-381,Insert Delete GetRandom O(1) Duplicates,Hard,Index swap trick with duplicate tracking in two maps simultaneously,✓,✓,✓,,,Arrays & Hashmaps
-1074,Number of Submatrices That Sum to Target,Hard,Compress rows to 1D prefix sum + hashmap; O(n^2*m) insight required,,✓,✓,,,Arrays & Hashmaps
-2262,Total Appeal of a String,Hard,Contribution of each char across all substrings; non-obvious last-seen DP,✓,✓,✓,,,Arrays & Hashmaps
-2671,Frequency Tracker,Hard,Maintaining two inverse maps in O(1) with correct rollback on decrement,✓,,✓,,,Arrays & Hashmaps
-2642,Design Graph With Shortest Path Calculator,Hard,Dijkstra embedded in a mutable DS; tests graph + DS integration,,✓,✓,✓,,Arrays & Hashmaps
-2354,Number of Excellent Pairs,Hard,Bit count property + binary search on frequency; O(64*n) insight,✓,✓,,,,Arrays & Hashmaps
-41,First Missing Positive,Brutal,O(1) space cyclic-index trick is non-obvious; most candidates fail the space constraint,✓,✓,✓,,,Arrays & Hashmaps
-460,LFU Cache,Brutal,Three-map design with min-freq tracking; rare full-interview problem,✓,,✓,,✓,Arrays & Hashmaps
-895,Maximum Frequency Stack,Brutal,freq->stack map + per-element freq map; elegant but hard to derive,✓,✓,✓,,,Arrays & Hashmaps
-42,Trapping Rain Water,Hard,"Two-pointer O(1) space; universally asked, wrong approach = instant fail",✓,✓,✓,✓,✓,Two Pointers
-76,Minimum Window Substring,Hard,Sliding window with character frequency tracking; deceptively many edge cases,✓,✓,✓,✓,✓,Two Pointers
-30,Substring with Concatenation of All Words,Hard,Multi-word sliding window with word-level frequency maps; complex indexing,✓,✓,✓,,,Two Pointers
-632,Smallest Range Covering Elements from K Lists,Hard,Min-heap + max-tracking sweep across K lists; non-trivial heap usage,✓,✓,✓,,,Two Pointers
-992,Subarrays with K Different Integers,Hard,"atMost(k) - atMost(k-1) trick; requires insight, not brute force",✓,✓,✓,,,Two Pointers
-1793,Maximum Score of a Good Subarray,Hard,Two pointers expanding from index k while tracking min; ordering matters,✓,✓,✓,,,Two Pointers
-2444,Count Subarrays With Fixed Bounds,Hard,"Track last invalid, last min, last max positions; O(n) with subtle counting",✓,✓,✓,,,Two Pointers
-2565,Subsequence With the Minimum Score,Hard,Binary search on score + two-pass prefix/suffix matching; hard to see,✓,✓,,,,Two Pointers
-2781,Length of the Longest Valid Substring,Hard,Sliding window + trie/set lookup; constraint on forbidden words tricky,✓,,✓,,,Two Pointers
-2537,Count the Number of Good Subarrays,Hard,Sliding window with pair count maintained via frequency delta; O(n),✓,✓,✓,,,Two Pointers
-1616,Split Two Strings to Make Palindrome,Hard,Two-pointer palindrome check from both ends simultaneously on two strings,,✓,✓,,,Two Pointers
-238,Product of Array Except Self,Med-Hard,"Follow-up: O(1) extra space using output array as left-pass, then right-pass inline",✓,✓,✓,✓,✓,Prefix/Suffix Sum
-523,Continuous Subarray Sum,Hard,Prefix mod + hashmap; off-by-one on length>=2 causes most failures,✓,✓,✓,,,Prefix/Suffix Sum
-974,Subarray Sums Divisible by K,Hard,Modular prefix sum; negative mod handling is the tricky part,✓,✓,✓,,,Prefix/Suffix Sum
-1542,Find Longest Awesome Substring,Hard,XOR bitmask prefix: at most one odd digit = bitmask within 1 flip,✓,✓,,,,Prefix/Suffix Sum
-1915,Number of Wonderful Substrings,Hard,10-bit bitmask prefix XOR; count states within 1 bit flip; elegant insight,✓,✓,✓,,,Prefix/Suffix Sum
-2025,Maximum Number of Ways to Partition an Array,Hard,Prefix/suffix sum maps + difference counting for each pivot candidate,✓,✓,✓,,,Prefix/Suffix Sum
-2488,Count Subarrays With Median K,Hard,Map elements to +1/-1 relative to k; prefix balance + hashmap counting,✓,✓,✓,,,Prefix/Suffix Sum
-2302,Count Subarrays With Score Less Than K,Hard,Binary search on prefix sum for each right boundary; monotonic property,,✓,✓,,,Prefix/Suffix Sum
-1074,Number of Submatrices That Sum to Target,Hard,Row-compressed 2D prefix sum + hashmap; O(n^2*m),,✓,✓,,,Prefix/Suffix Sum
-2281,Sum of Total Strength of Wizards,Brutal,Prefix of prefix sums + monotonic stack for subarray boundaries; multi-layered,✓,✓,✓,,,Prefix/Suffix Sum
-76,Minimum Window Substring,Hard,Core window; required for every senior LC prep,✓,✓,✓,✓,✓,Sliding Window
-239,Sliding Window Maximum,Hard,Monotonic deque; must know cold; real-time stream interview staple,✓,✓,✓,✓,✓,Sliding Window
-340,Longest Substring with At Most K Distinct,Hard,Freq map window; asked verbatim at Meta/Google phone screens,✓,✓,✓,✓,,Sliding Window
-992,Subarrays with K Different Integers,Hard,Exact-K = atMost(K) - atMost(K-1); insight-gated problem,✓,✓,✓,,,Sliding Window
-1438,Longest Continuous Subarray Abs Diff <= Limit,Hard,Two monotonic deques (max + min) sliding together,,✓,✓,,✓,Sliding Window
-1696,Jump Game VI,Hard,Deque DP: max window of size k over DP values; elegant O(n),✓,✓,✓,,,Sliding Window
-2398,Maximum Number of Robots Within Budget,Hard,Sliding window with deque for max charge + prefix sum for run cost,✓,✓,✓,,,Sliding Window
-30,Substring with Concatenation of All Words,Hard,"Word-level sliding window; |word| starting offsets, each needs own map",✓,✓,✓,,,Sliding Window
-2747,Count Zero Request Servers,Hard,Sliding window over time-sorted queries with server tracking,,✓,✓,,,Sliding Window
-480,Sliding Window Median,Brutal,Two heaps with lazy deletion; heap index tracking is brutal to implement,,✓,✓,,✓,Sliding Window
-84,Largest Rectangle in Histogram,Hard,Canonical monotonic stack; all rectangle DP problems trace to this,✓,✓,✓,✓,✓,Stack & Monotonic Stack
-85,Maximal Rectangle,Hard,Reduce to histogram per row then LC84; 2D compound insight,✓,✓,✓,,✓,Stack & Monotonic Stack
-316,Remove Duplicate Letters,Hard,Greedy monotonic stack with last-occurrence tracking; tricky invariant,✓,✓,✓,,,Stack & Monotonic Stack
-402,Remove K Digits,Hard,Monotonic stack to get lexicographic min; trailing zeros and remainder,✓,✓,✓,✓,,Stack & Monotonic Stack
-456,132 Pattern,Hard,Monotonic stack from right + running min from left; 3-pointer insight,✓,✓,✓,,,Stack & Monotonic Stack
-907,Sum of Subarray Minimums,Hard,Contribution counting with prev/next smaller; stack boundaries critical,✓,✓,✓,,,Stack & Monotonic Stack
-2104,Sum of Subarray Ranges,Hard,Max contribution - Min contribution; needs two separate stack passes,✓,,✓,,,Stack & Monotonic Stack
-2289,Steps to Make Array Non-decreasing,Hard,Monotonic stack where each node stores rounds needed; subtle accumulation,,✓,✓,,,Stack & Monotonic Stack
-1776,Car Fleet II,Hard,Monotonic stack from right; collision time with faster-behind slower logic,✓,✓,✓,,,Stack & Monotonic Stack
-2751,Robot Collisions,Hard,Left right collisions with index tracking and sorting,,,✓,,,Stack & Monotonic Stack
-1130,Minimum Cost Tree From Leaf Values,Hard,Monotonic stack greedy; counter-intuitive non-DP optimal approach,,✓,✓,,,Stack & Monotonic Stack
-2281,Sum of Total Strength of Wizards,Brutal,Prefix of prefix sums + monotonic stack; hardest stack problem on LC,✓,✓,✓,,,Stack & Monotonic Stack
-33,Search in Rotated Sorted Array,Hard,Identify sorted half then recurse; rotation pivot tracking under pressure,✓,✓,✓,✓,✓,Binary Search
-410,Split Array Largest Sum,Hard,Binary search on answer space + greedy feasibility check; classic BS-on-answer,✓,✓,✓,✓,,Binary Search
-719,Find K-th Smallest Pair Distance,Hard,Sort + BS on distance + two-pointer count of pairs <= mid,✓,✓,✓,,,Binary Search
-774,Minimize Max Distance to Gas Station,Hard,BS on real answer with floating-point feasibility check; interval count greedy,,✓,,✓,,Binary Search
-878,Nth Magical Number,Hard,BS + inclusion-exclusion with LCM; modular arithmetic under constraints,,✓,✓,,,Binary Search
-1231,Divide Chocolate,Hard,BS on min sweetness + greedy segment count; premium but conceptually clean,✓,✓,✓,,,Binary Search
-1802,Maximum Value at a Given Index in a Bounded Array,Hard,BS on peak value + arithmetic sum feasibility for both sides,,✓,✓,,,Binary Search
-2528,Maximize the Minimum Powered City,Hard,BS on min power + greedy suffix placement of additional stations,,✓,✓,,,Binary Search
-1482,Minimum Number of Days to Make m Bouquets,Hard,Classic BS on answer; feasibility with consecutive bloom counting,✓,✓,✓,,,Binary Search
-4,Median of Two Sorted Arrays,Brutal,"O(log(min(m,n))) binary search on partition; hardest BS problem, asked cold",✓,✓,✓,✓,✓,Binary Search
-668,Kth Smallest Number in Multiplication Table,Brutal,BS + counting rows <= mid; row-by-row min trick for exact count,,✓,✓,,,Binary Search
-2071,Maximum Number of Tasks You Can Assign,Brutal,BS on task count + greedy deque assignment of pills; multi-layer,✓,✓,✓,,,Binary Search
-23,Merge K Sorted Lists,Hard,Min-heap of k heads; universally asked in every FAANG loop,✓,✓,✓,✓,✓,Linked Lists
-25,Reverse Nodes in k-Group,Hard,Iterative reversal with careful pointer bookkeeping; clean code under pressure,✓,✓,✓,,✓,Linked Lists
-138,Copy List with Random Pointer,Hard,Interleaving approach or hashmap; O(1) space interleave is the hard variant,✓,✓,✓,✓,✓,Linked Lists
-146,LRU Cache,Hard,DLL + hashmap; sentinel nodes avoid null checks; coding signal problem,✓,✓,✓,✓,✓,Linked Lists
-1171,Remove Zero Sum Consecutive Nodes,Hard,Prefix sum on LL + hashmap; tricky to handle consecutive zeros,✓,✓,✓,,,Linked Lists
-708,Insert into a Sorted Circular Linked List,Hard,"Handle wrap-around edge cases: all same, new min, new max, interior",✓,,,✓,,Linked Lists
-2074,Reverse Nodes in Even Length Groups,Hard,Length calculation + selective reversal on LL; tedious pointer management,✓,,,,,Linked Lists
-2816,Double a Number Represented as Linked List,Hard,Reverse + propagate carry without extra space; simpler but clean code tested,✓,,✓,,,Linked Lists
-432,All O`one Data Structure,Brutal,DLL of frequency buckets + two maps; full design interview problem,,✓,✓,,✓,Linked Lists
-460,LFU Cache,Brutal,Three maps + min_freq tracking; hardest cache design on LC,✓,,✓,,✓,Linked Lists
-1206,Design Skiplist,Brutal,Probabilistic layered list; rare to be asked but devastating if unprepared,,✓,✓,,,Linked Lists
-124,Binary Tree Maximum Path Sum,Hard,Global max updated during DFS; must not return full path up if it's negative,✓,✓,✓,✓,✓,Trees
-297,Serialize and Deserialize Binary Tree,Hard,BFS or preorder string + stream reader; asked cold at every FAANG onsite,✓,✓,✓,✓,✓,Trees
-652,Find Duplicate Subtrees,Hard,Canonical serialization hashing in postorder; map of serialized to count,✓,✓,✓,,,Trees
-1028,Recover a Tree From Preorder Traversal,Hard,Stack-based depth parsing from dashes; reconstruct without explicit tree,,✓,✓,,,Trees
-1373,Maximum Sum BST in Binary Tree,Hard,"Post-order: validate BST subtree + track sum, min, max; 4-tuple return",✓,✓,✓,,,Trees
-2458,Height of Binary Tree After Subtree Removal Queries,Hard,Pre-compute best alternative heights at each depth; two DFS passes,✓,✓,✓,,,Trees
-2096,Step-By-Step Directions From Binary Tree Node to Another,Hard,LCA + path reconstruction with direction encoding; clean code matters,✓,✓,✓,,,Trees
-437,Path Sum III,Hard,Prefix sum on root-to-node paths + hashmap; O(n) not O(n^2),✓,✓,✓,,,Trees
-428,Serialize and Deserialize N-ary Tree,Brutal,Children-count encoding + DFS reconstruction; harder variant of 297,✓,,✓,,,Trees
-968,Binary Tree Cameras,Brutal,Greedy post-order DFS with 3-state; optimal camera placement hard to derive,✓,✓,✓,,,Trees
-1483,Kth Ancestor of a Tree Node,Brutal,"Binary lifting (sparse table on tree); log(n) per query, O(n log n) build",✓,✓,✓,,,Trees
-1569,Number of Ways to Reorder Array to Get Same BST,Brutal,"Recursive combinatorics: C(left+right, left) x subtree counts; modular math",,✓,✓,,,Trees
-218,The Skyline Problem,Hard,Max-heap of active buildings with lazy removal; event sweep + critical points,✓,✓,✓,,✓,Heaps / Priority Queues
-295,Find Median from Data Stream,Hard,Two heaps; rebalance on every insert; foundational streaming data problem,✓,✓,✓,,✓,Heaps / Priority Queues
-358,Rearrange String k Distance Apart,Hard,Max-heap + cooldown queue of size k; placement with frequency decrement,,✓,✓,,✓,Heaps / Priority Queues
-407,Trapping Rain Water II,Hard,Min-heap BFS (Dijkstra-like); expand from boundaries inward with water level,✓,✓,✓,,,Heaps / Priority Queues
-632,Smallest Range Covering Elements from K Lists,Hard,Min-heap of current elements + running max; advance from smallest list,✓,✓,✓,,,Heaps / Priority Queues
-759,Employee Free Time,Hard,Heap merge of all intervals then gap detection; or sort + linear scan,,✓,,✓,✓,Heaps / Priority Queues
-1383,Maximum Performance of a Team,Hard,Sort by efficiency desc; min-heap of speed size k; classic greedy+heap combo,✓,✓,✓,,,Heaps / Priority Queues
-2163,Minimum Difference in Sums After Removal of Elements,Hard,Max-heap prefix min-sums + min-heap suffix max-sums; combine at split,✓,✓,✓,,,Heaps / Priority Queues
-2402,Meeting Rooms III,Hard,"Two heaps: available rooms + in-use (end_time, room_id); priority logic",✓,✓,✓,✓,,Heaps / Priority Queues
-2542,Maximum Subsequence Score,Hard,Sort by second array desc; min-heap of size k on first array; running sum,✓,✓,✓,,,Heaps / Priority Queues
-480,Sliding Window Median,Brutal,Two heaps + lazy deletion via removal set; rebalance on every slide,,✓,✓,,✓,Heaps / Priority Queues
-857,Minimum Cost to Hire K Workers,Brutal,Sort by wage/quality ratio; max-heap of quality sum; O(n log k) insight,,✓,✓,,✓,Heaps / Priority Queues
-1675,Minimize Deviation in Array,Brutal,"Max-heap: multiply odds to make even, then divide; track running min",,✓,✓,,,Heaps / Priority Queues
-51,N-Queens,Hard,"Diagonal bitmask backtrack; 3 bitsets (col, diag1, diag2); O(n!) pruned",✓,✓,✓,,✓,Backtracking
-140,Word Break II,Hard,Memoized backtrack; result lists memoized at each index; exponential without memo,✓,✓,✓,✓,✓,Backtracking
-212,Word Search II,Hard,Trie-pruned DFS backtrack; delete found words from Trie to avoid duplicate paths,✓,✓,✓,,,Backtracking
-282,Expression Add Operators,Hard,Backtrack with prev_operand tracking for * undo; overflow with long arithmetic,✓,✓,✓,,,Backtracking
-301,Remove Invalid Parentheses,Hard,BFS level-by-level removal; or backtrack with counts; tricky dedup,✓,,✓,,,Backtracking
-980,Unique Paths III,Hard,Bitmask backtrack on grid; visit all non-obstacle cells exactly once,,✓,✓,,,Backtracking
-1255,Maximum Score Words Formed by Letters,Hard,Bitmask subset backtrack; check feasibility per letter frequency,✓,✓,✓,,,Backtracking
-37,Sudoku Solver,Brutal,Constraint propagation + backtrack; bitmask row/col/box for O(1) valid check,✓,✓,✓,,,Backtracking
-425,Word Squares,Brutal,Trie prefix pruning in backtrack; word[i][j]=word[j][i] constraint,,✓,,,,Backtracking
-1349,Maximum Students Taking Exam,Brutal,Bitmask DP row by row; valid state masks + cross-row diagonal constraints,,✓,✓,,,Backtracking
-2060,Check if Original String Exists Given Two Encoded Strings,Brutal,"Backtrack on two pointers with offset difference state; memoize (i,j,diff)",,✓,,,,Backtracking
-212,Word Search II,Hard,Trie insert all words; DFS backtrack with in-place mark; delete from Trie on found,✓,✓,✓,,,Trie
-421,Maximum XOR of Two Numbers,Hard,Binary Trie from MSB; greedy opposite-bit traversal for max XOR,✓,✓,✓,,,Trie
-472,Concatenated Words,Hard,Trie + DP or DFS memo; word must be formed by 2+ shorter words in set,✓,✓,✓,,,Trie
-642,Design Search Autocomplete System,Hard,Trie nodes store top-3 by freq; DFS at end of input or return path results,✓,✓,✓,✓,✓,Trie
-745,Prefix and Suffix Search,Hard,Combined Trie key: suffix#word; insert all suffix+word combos per word,,✓,✓,,,Trie
-1032,Stream of Characters,Hard,Aho-Corasick (reversed Trie + BFS fail links); match suffixes in stream,✓,✓,✓,,,Trie
-2416,Sum of Prefix Scores of Strings,Hard,Trie with passing-count at each node; sum counts on root-to-leaf path,✓,✓,✓,,,Trie
-336,Palindrome Pairs,Brutal,Trie or hashmap: split each word into prefix/suffix; check reversed counterpart palindrome,,✓,✓,,,Trie
-425,Word Squares,Brutal,Trie with prefix to words index; backtrack with prefix constraint,,✓,,,,Trie
-1707,Maximum XOR With an Element From Array,Brutal,Offline queries sorted by limit; add elements <= limit to Trie then query XOR,,✓,✓,,,Trie
-1803,Count Pairs With XOR in a Range,Brutal,Trie counting: pairs with XOR < high minus pairs < low; prefix node counts,,✓,✓,,,Trie
-127,Word Ladder,Hard,BFS with wildcard neighbor generation; O(M^2*N) with pattern caching,✓,✓,✓,✓,✓,Graphs
-269,Alien Dictionary,Hard,Topological sort from adjacent word char pairs; cycle = invalid,✓,✓,✓,✓,,Graphs
-310,Minimum Height Trees,Hard,Topological leaf-removal (like BFS from leaves inward); 1 or 2 roots remain,✓,✓,✓,,,Graphs
-329,Longest Increasing Path in Matrix,Hard,DFS + memoization on DAG; no need for visited since increasing direction prevents cycles,✓,✓,✓,✓,✓,Graphs
-399,Evaluate Division,Hard,Weighted graph BFS/DFS; edge weight = ratio; product of path weights,✓,✓,✓,✓,,Graphs
-815,Bus Routes,Hard,BFS on route-level graph (not stop-level); stops to routes map to build hypergraph,✓,✓,,,,Graphs
-1192,Critical Connections in a Network,Hard,Tarjan bridge-finding; low-link values; asked at Amazon infra rounds,✓,,✓,,✓,Graphs
-1345,Jump Game IV,Hard,BFS with value to indices grouping; clear groups after visiting to avoid TLE,✓,✓,✓,,,Graphs
-2876,Count Visited Nodes in a Directed Graph,Hard,Functional graph: detect cycle nodes then back-propagate distances,✓,✓,✓,,,Graphs
-1514,Path with Maximum Probability,Hard,Dijkstra with max-heap on probability; log-transform to additive if needed,,✓,✓,✓,,Graphs
-126,Word Ladder II,Brutal,BFS shortest path + DFS path reconstruction; hardest BFS problem asked,✓,✓,✓,,,Graphs
-2097,Valid Arrangement of Pairs,Brutal,Eulerian path: find start node (out-in=1); Hierholzer DFS post-order,,✓,✓,,,Graphs
-332,Reconstruct Itinerary,Hard,Hierholzer Eulerian path; lexicographic ordering via sorted adjacency list,✓,✓,,✓,,Advanced Graphs
-778,Swim in Rising Water,Hard,Dijkstra on grid (cost = max cell value on path); or binary search + BFS,,✓,✓,,,Advanced Graphs
-1293,Shortest Path in Grid with Obstacles Elimination,Hard,"BFS with state (x,y,k_remaining); visited[x][y][k] to prune",✓,✓,✓,,,Advanced Graphs
-1368,Minimum Cost to Make at Least One Valid Path in Grid,Hard,"0-1 BFS: free move along arrow=0 cost, changing direction=1 cost",,✓,✓,,,Advanced Graphs
-2492,Minimum Score of Path Between Two Cities,Hard,DSU or BFS to find all edges in connected component of 1; min edge weight,,✓,✓,,,Advanced Graphs
-2577,Minimum Time to Visit a Cell In a Grid,Hard,Dijkstra with wait-time parity trick; must handle forced back-and-forth,✓,✓,✓,,,Advanced Graphs
-882,Reachable Nodes In Subdivided Graph,Hard,Dijkstra; for each edge count reachable sub-nodes from each end within budget,,✓,,,,Advanced Graphs
-753,Cracking the Safe,Brutal,De Bruijn sequence via Eulerian circuit on (n-1)-digit nodes; DFS post-order,,✓,,,,Advanced Graphs
-1489,Find Critical and Pseudo-Critical Edges in MST,Brutal,Kruskal MST weight; brute force include/exclude each edge; O(E^2 * alpha(V)),,✓,✓,,,Advanced Graphs
-2203,Minimum Weighted Subgraph With Required Paths,Brutal,"3 Dijkstra runs (src1, src2, dst reversed); combine at each meeting node",✓,✓,✓,,,Advanced Graphs
-305,Number of Islands II,Hard,Online DSU with coordinate hashing; union 4 neighbors on each add; keep rolling count increment. when merged decrement (union succeed),✓,✓,✓,,,DSU
-399,Evaluate Division,Hard,Weighted DSU with ratio propagation; find product of path from a to b,✓,✓,✓,✓,,DSU
-685,Redundant Connection II,Hard,DSU + directed edge case analysis; one of 3 structural scenarios. A rooted tree has only one node with 0 incoming,,✓,✓,,,DSU
-765,Couples Holding Hands,Hard,DSU cycle counting; swaps = n_pairs - components; elegant insight,,✓,✓,,,DSU
-839,Similar String Groups,Hard,DSU with O(n^2 * L) union on similarity check; small n saves it,✓,✓,✓,,,DSU
-924,Minimize Malware Spread,Hard,DSU component sizes; find component with only one initial infected node,,✓,✓,,,DSU
-1202,Smallest String With Swaps,Hard,DSU components then sort chars within each component independently,✓,,✓,,,DSU
-1579,Remove Max Edges to Keep Graph Fully Traversable,Hard,"Two DSUs (Alice, Bob); add type-3 first; count redundant edges across both",✓,✓,✓,,,DSU
-2709,Greatest Common Divisor Traversal,Hard,DSU via shared prime factors; similar to LC 952 but check full connectivity,✓,✓,✓,,,DSU
-952,Largest Component Size by Common Factor,Brutal,DSU: union each number with all its prime factors; factor to number links,,✓,✓,,,DSU
-1632,Rank Transform of a Matrix,Brutal,Group cells by value; DSU cells sharing row/col; rank = max rank in component + 1,,✓,✓,,,DSU
-132,Palindrome Partitioning II,Hard,DP min cuts + Manacher or expand-around-center for palindrome check; O(n^2),✓,✓,✓,,,1-D DP
-264,Ugly Number II,Hard,"Three-pointer DP; separately track next multiple of 2, 3, 5; merge step",✓,✓,✓,,,1-D DP
-639,Decode Ways II,Hard,"DP with * wildcard cases: 1-9 for single, 11-19/21-26 for double; modular",✓,✓,✓,,,1-D DP
-801,Minimum Swaps To Make Sequences Increasing,Hard,DP with swap/keep states; transitions depend on both strict increase conditions,✓,✓,✓,,,1-D DP
-940,Distinct Subsequences II,Hard,DP end[c] = total valid subsequences ending in char c; subtract on revisit,,✓,✓,,,1-D DP
-1027,Longest Arithmetic Subsequence,Hard,DP hashmap per index: dp[i][diff] = length; O(n^2) with map per element,✓,✓,✓,,,1-D DP
-1425,Constrained Subsequence Sum,Hard,Deque DP: keep max dp value in window of size k; monotonic deque O(n),✓,✓,✓,,,1-D DP
-1048,Longest String Chain,Hard,"Sort by length; DP: for each word try removing each char, lookup predecessor",✓,✓,✓,,✓,1-D DP
-2140,Solving Questions With Brainpower,Hard,Reverse DP; dp[i] = max from i onwards; either skip or take + dp[i+b+1],✓,✓,✓,,,1-D DP
-2369,Check if There is a Valid Partition,Hard,"DP boolean; 3 base cases: pair equal, triple equal, triple consecutive",✓,,✓,,,1-D DP
-474,Ones and Zeroes,Hard,"2D 0-1 knapsack (m zeros, n ones budget); iterate backwards to avoid reuse",✓,✓,✓,,,Knapsack DP
-494,Target Sum,Hard,"Reduce to subset-sum: P - N = target, P + N = sum; find P; or 2D DP",✓,✓,✓,,,Knapsack DP
-1049,Last Stone Weight II,Hard,Partition into two groups min |S1-S2|; 0-1 knapsack up to sum/2,✓,✓,✓,,,Knapsack DP
-1155,Number of Dice Rolls With Target Sum,Hard,Bounded knapsack: dp[i][j] = ways using i dice summing to j; rolling window,,✓,✓,,,Knapsack DP
-1449,Form Largest Integer With Digits That Add Up to Target,Hard,"Unbounded knapsack maximizing length first, then lexicographic digit; two-pass",,✓,✓,,,Knapsack DP
-2218,Maximum Value of K Coins From Piles,Hard,"Prefix sum per pile + 2D knapsack: dp[i][j] = best using first i piles, j coins",✓,✓,✓,,,Knapsack DP
-2585,Number of Ways to Earn Points,Hard,Bounded knapsack: each type has count limit; group knapsack variant,,✓,✓,,,Knapsack DP
-2915,Length of Longest Subsequence That Sums to Target,Hard,0-1 knapsack tracking max length; -inf for unreachable states,✓,,✓,,,Knapsack DP
-879,Profitable Schemes,Brutal,2D bounded knapsack: dp[members][profit]; profit dimension capped at minProfit,,✓,✓,,,Knapsack DP
-1655,Distribute Repeating Integers,Brutal,Bitmask DP on customer subsets; knapsack over quantities to cover each subset,,✓,✓,,,Knapsack DP
-300,Longest Increasing Subsequence,Hard,Must know O(n log n) patience sort; O(n^2) not acceptable at FAANG,✓,✓,✓,✓,✓,LIS Pattern
-368,Largest Divisible Subset,Hard,LIS on sorted array with divisibility; track parent pointers for reconstruction,,✓,✓,,,LIS Pattern
-646,Maximum Length of Pair Chain,Hard,Sort by end; greedy O(n log n) or LIS on end values; interval-LIS fusion,✓,✓,✓,,,LIS Pattern
-673,Number of Longest Increasing Subsequence,Hard,DP with count array alongside length array; carefully update both,✓,✓,✓,,,LIS Pattern
-1671,Min Removals to Make Mountain Array,Hard,LIS from left + LIS from right; peak must have both > 0; O(n log n),✓,✓,✓,,,LIS Pattern
-1964,Find the Longest Valid Obstacle Course,Hard,Online LIS (non-strict) using bisect_right; answer per position,✓,✓,✓,,,LIS Pattern
-2111,Minimum Operations to Make Array K-Increasing,Hard,Split into k subsequences; each needs min replacements = len - LIS length,,✓,✓,,,LIS Pattern
-2370,Longest Ideal Subsequence,Hard,DP with freq array over 26 chars; range max query O(26) per char = O(26n),✓,✓,✓,,,LIS Pattern
-1626,Best Team With No Conflicts,Hard,Sort by age then score; LIS variant maximizing sum instead of length,✓,✓,✓,,,LIS Pattern
-354,Russian Doll Envelopes,Brutal,"Sort w asc, h desc; LIS on h only; desc trick avoids counting same-width",✓,✓,✓,,,LIS Pattern
-2407,Longest Increasing Subsequence II,Brutal,Segment tree range-max query + update; O(n log n) but segment tree required,,✓,✓,,,LIS Pattern
-375,Guess Number Higher or Lower II,Hard,"Minimax interval DP; worst-case cost when guessing k in [i,j]",,✓,✓,,,Interval DP
-486,Predict the Winner,Hard,Interval DP game theory; dp[i][j] = max score difference for current player,✓,✓,✓,,✓,Interval DP
-664,Strange Printer,Hard,"Interval DP; if s[i]==s[j], extend i's print to j; O(n^3)",✓,✓,✓,,,Interval DP
-1000,Minimum Cost to Merge Stones,Hard,Interval DP: only merge when (r-l) % (K-1) == 0; O(n^3/K),,✓,✓,,,Interval DP
-1039,Minimum Score Triangulation of Polygon,Hard,"Interval DP on polygon vertices; fix one edge, pick apex k inside",,✓,✓,,,Interval DP
-1246,Palindrome Removal,Hard,"Interval DP; dp[i][j]; if palindrome extend, else split; base on a[i]==a[j]",,✓,✓,,,Interval DP
-1547,Minimum Cost to Cut a Stick,Hard,"Classic interval DP; add endpoints; dp[i][j] = min cost to cut segment [i,j]",✓,✓,✓,,,Interval DP
-312,Burst Balloons,Brutal,"Interval DP: last balloon to burst, not first; dp[i][j] = max coins for range",✓,✓,✓,,,Interval DP
-471,Encode String with Shortest Length,Brutal,Interval DP + KMP repeat detection; encode[i][j] via split or repeat compression,,✓,,,,Interval DP
-546,Remove Boxes,Brutal,3D interval DP: dp[l][r][k] = max points with k same-color boxes appended left,,✓,✓,,,Interval DP
-730,Count Different Palindromic Subsequences,Brutal,Interval DP with char-specific expansion; handle duplicate and disjoint cases,,✓,,,,Interval DP
-72,Edit Distance,Hard,Classic 2D DP; follow-up: O(n) space rolling array and path reconstruction,✓,✓,✓,✓,✓,String DP
-97,Interleaving String,Hard,2D DP dp[i][j]: can form s3[:i+j] using s1[:i] and s2[:j]; tricky init,✓,✓,✓,,,String DP
-115,Distinct Subsequences,Hard,DP counting: dp[i][j] = ways s[:i] contains t[:j] as subsequence; large numbers,✓,✓,✓,,,String DP
-132,Palindrome Partitioning II,Hard,1D DP min cuts; precompute palindrome table via expand or Manacher,✓,✓,✓,,,String DP
-140,Word Break II,Hard,Memoized DFS; cache list of sentences from each position; exponential without memo,✓,✓,✓,✓,✓,String DP
-1312,Minimum Insertion Steps to Make a String Palindrome,Hard,"LCS of s and reverse(s); insertions = n - LCS(s, rev_s); neat reduction",✓,✓,✓,,,String DP
-1458,Max Dot Product of Two Subsequences,Hard,"LCS variant; dp[i][j] = max dot product using subsequences ending at i,j",,✓,✓,,,String DP
-1143,Longest Common Subsequence,Hard,Foundation; FAANG asks with reconstruction or n^2 to n log n optimization follow-up,✓,✓,✓,✓,✓,String DP
-10,Regular Expression Matching,Brutal,"DP on (i,j) pairs; * means 0 or more of preceding; 4 transition cases",✓,✓,✓,,,String DP
-44,Wildcard Matching,Brutal,DP similar to 10 but * matches any sequence; simpler transitions than regex,✓,✓,✓,,,String DP
-1639,Number of Ways to Form Target String From Dictionary,Brutal,DP: col_freq[j][c] precomputed; dp[i][j] = ways to form target[:i] using cols[:j],✓,✓,✓,,,String DP
-174,Dungeon Game,Hard,Reverse DP bottom-right to top-left; forward DP fails due to negative spiral,✓,✓,✓,,,2-D Grid DP
-221,Maximal Square,Hard,"DP dp[i][j] = min(top, left, diag)+1; must handle edge and corner cells",✓,✓,✓,,✓,2-D Grid DP
-329,Longest Increasing Path in Matrix,Hard,DFS + memo; no cycle possible due to strict increase; topological order implicit,✓,✓,✓,✓,✓,2-D Grid DP
-363,Max Sum of Rectangle No Larger Than K,Hard,Compress rows to 1D; binary search on sorted prefix sums for each column pair,,✓,✓,,✓,2-D Grid DP
-1301,Number of Paths with Max Score,Hard,2D DP tracking both max score and count; modular count with -inf for blocked,,✓,✓,,,2-D Grid DP
-1463,Cherry Pickup II,Hard,"3D DP top-down: two robots (c1,c2) per row; 9 transitions per state",,✓,✓,,,2-D Grid DP
-2328,Number of Increasing Paths in a Grid,Hard,Topological sort by value + DP; or DFS+memo; count paths ending at each cell,✓,✓,✓,,,2-D Grid DP
-2435,Paths in Matrix Whose Sum Divisible by K,Hard,DP dp[i][j][r] = paths mod k = r; only right/down moves,,✓,✓,,,2-D Grid DP
-2267,Check if Valid Parentheses String Path,Hard,"DP on (i,j): set of valid open-paren balances reachable; bitmask compress",,✓,✓,,,2-D Grid DP
-64,Minimum Path Sum,Hard,"Core grid DP; FAANG asks with obstacles, k-blocked cells, or 3D variants",✓,✓,✓,✓,,2-D Grid DP
-741,Cherry Pickup,Brutal,"3D DP: two paths simultaneously; dp[t][r1][r2]; r2 derived from t,r1,r2",,✓,✓,,,2-D Grid DP
-123,Best Time to Buy and Sell Stock III,Hard,Exactly 2 transactions; 4 states or prefix/suffix max; state machine DP,✓,✓,✓,,✓,Decision DP
-188,Best Time to Buy and Sell Stock IV,Hard,k transactions; collapse when k>=n/2; O(nk) DP state machine,✓,✓,✓,,✓,Decision DP
-403,Frog Jump,Hard,Hashmap DP: stone to set of jump sizes to reach it; BFS-like expansion,✓,✓,✓,,,Decision DP
-514,Freedom Trail,Hard,2D DP: dp[i][j] = min steps to spell key[:i] with ring at position j,,✓,✓,,,Decision DP
-600,Non-negative Integers Without Consecutive Ones,Hard,Digit DP on binary representation; Fibonacci-based counting approach also works,,✓,✓,,,Decision DP
-871,Minimum Number of Refueling Stops,Hard,"Greedy + max-heap: add all reachable stations, pop max when out of fuel",,✓,✓,✓,,Decision DP
-1235,Maximum Profit in Job Scheduling,Hard,Sort by end; binary search for last non-overlapping job; classic interval DP,✓,✓,✓,✓,✓,Decision DP
-2830,Maximize the Profit as the Salesman,Hard,DP + binary search for non-overlapping intervals; similar to job scheduling,✓,✓,✓,,,Decision DP
-691,Stickers to Spell Word,Brutal,Bitmask DP on target chars; dp[mask] = min stickers; BFS or bottom-up,,✓,✓,,,Decision DP
-818,Race Car,Brutal,"BFS/DP; state = (pos, speed); or DP with acceleration then reverse patterns",,✓,✓,,,Decision DP
-1531,String Compression II,Brutal,DP dp[i][k] = min length compressing s[:i] with k deletions; group-run insight,✓,✓,✓,,,Decision DP
-45,Jump Game II,Hard,O(n) greedy; track current reach and next reach; increment jumps at boundary,✓,✓,✓,✓,✓,Greedy
-134,Gas Station,Hard,Single pass: reset start when tank < 0; total sum >= 0 guarantees solution,✓,✓,✓,✓,✓,Greedy
-406,Queue Reconstruction by Height,Hard,Sort by height desc then k asc; insert at index k; shorter people don't affect taller,✓,✓,✓,,,Greedy
-621,Task Scheduler,Hard,Math formula with max-freq task; or greedy simulation with heap,✓,✓,✓,✓,✓,Greedy
-630,Course Schedule III,Hard,Sort by deadline; max-heap of durations; swap if current > top and saves time,✓,✓,✓,,,Greedy
-763,Partition Labels,Hard,Last occurrence map; expand window greedily; O(n) single pass,✓,✓,✓,,,Greedy
-1326,Minimum Number of Taps to Water Garden,Hard,Reduce to Jump Game II; for each position track farthest reach; O(n),✓,✓,✓,,,Greedy
-1353,Maximum Number of Events That Can Be Attended,Hard,Greedy day-by-day; min-heap of end days; attend earliest-ending available,✓,✓,✓,,,Greedy
-1642,Furthest Building You Can Reach,Hard,Greedy: use ladders for top-k climbs; min-heap to swap ladder with bricks,✓,✓,✓,✓,,Greedy
-2136,Earliest Possible Day of Full Bloom,Hard,Sort by grow time desc; plant greedily; proof: swapping adjacent never improves,✓,✓,✓,,,Greedy
-2182,Construct String With Repeat Limit,Hard,"Greedy: use largest char up to limit times, then one of next; max-heap",✓,✓,✓,,,Greedy
-56,Merge Intervals,Hard,"Foundation; FAANG asks with follow-ups: stream version, weighted, k-way",✓,✓,✓,✓,✓,Intervals
-57,Insert Interval,Hard,"Three-phase scan: before, overlap, after; O(n) single pass",✓,✓,✓,✓,✓,Intervals
-253,Meeting Rooms II,Hard,Min-heap of end times; or event sweep; universally asked at every company,✓,✓,✓,✓,✓,Intervals
-352,Data Stream as Disjoint Intervals,Hard,Sorted map (TreeMap); merge with left and right neighbors on each add,,✓,✓,,✓,Intervals
-435,Non-overlapping Intervals,Hard,Sort by end; greedy keep non-overlapping; n - kept = min removals,✓,✓,✓,,,Intervals
-759,Employee Free Time,Hard,Merge all intervals then find gaps; or min-heap multi-way merge,,✓,,✓,✓,Intervals
-1235,Maximum Profit in Job Scheduling,Hard,Sort + binary search + 1D DP; non-overlapping interval selection with weights,✓,✓,✓,✓,✓,Intervals
-715,Range Module,Brutal,Sorted map with interval merging/splitting; add/remove/query O(log n) amortized,,✓,✓,,✓,Intervals
-1851,Minimum Interval to Include Each Query,Brutal,Offline sort queries + min-heap of active intervals; remove expired on query,✓,✓,✓,,,Intervals
-2276,Count Integers in Intervals,Brutal,Interval tree or sorted map with merge; maintain total covered count dynamically,,✓,✓,,✓,Intervals
-2213,Longest Substring of One Repeating Character,Brutal,Segment tree with lazy propagation; interval updates + max-run queries,,✓,✓,,,Intervals
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-,,,,,,,,,
-
+LC#,Problem Name,Link,Difficulty,Why It's Hard (Solution Lens),Meta,Google,Amazon,Uber,Netflix,Pattern
+149,Max Points on a Line,https://leetcode.com/problems/max-points-on-a-line/,Hard,GCD-normalized slope hashing + collinear edge cases; deeper than it looks,✓,✓,✓,,,Arrays & Hashmaps
+295,Find Median from Data Stream,https://leetcode.com/problems/find-median-from-data-stream/,Hard,Two-heap balancing with rebalance logic; classic system-design coding bridge,✓,✓,✓,,✓,Arrays & Hashmaps
+381,Insert Delete GetRandom O(1) Duplicates,https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/,Hard,Index swap trick with duplicate tracking in two maps simultaneously,✓,✓,✓,,,Arrays & Hashmaps
+1074,Number of Submatrices That Sum to Target,https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/,Hard,Compress rows to 1D prefix sum + hashmap; O(n^2*m) insight required,,✓,✓,,,Arrays & Hashmaps
+2262,Total Appeal of a String,https://leetcode.com/problems/total-appeal-of-a-string/,Hard,Contribution of each char across all substrings; non-obvious last-seen DP,✓,✓,✓,,,Arrays & Hashmaps
+2671,Frequency Tracker,https://leetcode.com/problems/frequency-tracker/,Hard,Maintaining two inverse maps in O(1) with correct rollback on decrement,✓,,✓,,,Arrays & Hashmaps
+2642,Design Graph With Shortest Path Calculator,https://leetcode.com/problems/design-graph-with-shortest-path-calculator/,Hard,Dijkstra embedded in a mutable DS; tests graph + DS integration,,✓,✓,✓,,Arrays & Hashmaps
+2354,Number of Excellent Pairs,https://leetcode.com/problems/number-of-excellent-pairs/,Hard,Bit count property + binary search on frequency; O(64*n) insight,✓,✓,,,,Arrays & Hashmaps
+41,First Missing Positive,https://leetcode.com/problems/first-missing-positive/,Brutal,O(1) space cyclic-index trick is non-obvious; most candidates fail the space constraint,✓,✓,✓,,,Arrays & Hashmaps
+460,LFU Cache,https://leetcode.com/problems/lfu-cache/,Brutal,Three-map design with min-freq tracking; rare full-interview problem,✓,,✓,,✓,Arrays & Hashmaps
+895,Maximum Frequency Stack,https://leetcode.com/problems/maximum-frequency-stack/,Brutal,freq->stack map + per-element freq map; elegant but hard to derive,✓,✓,✓,,,Arrays & Hashmaps
+42,Trapping Rain Water,https://leetcode.com/problems/trapping-rain-water/,Hard,"Two-pointer O(1) space; universally asked, wrong approach = instant fail",✓,✓,✓,✓,✓,Two Pointers
+76,Minimum Window Substring,https://leetcode.com/problems/minimum-window-substring/,Hard,Sliding window with character frequency tracking; deceptively many edge cases,✓,✓,✓,✓,✓,Two Pointers
+30,Substring with Concatenation of All Words,https://leetcode.com/problems/substring-with-concatenation-of-all-words/,Hard,Multi-word sliding window with word-level frequency maps; complex indexing,✓,✓,✓,,,Two Pointers
+632,Smallest Range Covering Elements from K Lists,https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/,Hard,Min-heap + max-tracking sweep across K lists; non-trivial heap usage,✓,✓,✓,,,Two Pointers
+992,Subarrays with K Different Integers,https://leetcode.com/problems/subarrays-with-k-different-integers/,Hard,"atMost(k) - atMost(k-1) trick; requires insight, not brute force",✓,✓,✓,,,Two Pointers
+1793,Maximum Score of a Good Subarray,https://leetcode.com/problems/maximum-score-of-a-good-subarray/,Hard,Two pointers expanding from index k while tracking min; ordering matters,✓,✓,✓,,,Two Pointers
+2444,Count Subarrays With Fixed Bounds,https://leetcode.com/problems/count-subarrays-with-fixed-bounds/,Hard,"Track last invalid, last min, last max positions; O(n) with subtle counting",✓,✓,✓,,,Two Pointers
+2565,Subsequence With the Minimum Score,https://leetcode.com/problems/subsequence-with-the-minimum-score/,Hard,Binary search on score + two-pass prefix/suffix matching; hard to see,✓,✓,,,,Two Pointers
+2781,Length of the Longest Valid Substring,https://leetcode.com/problems/length-of-the-longest-valid-substring/,Hard,Sliding window + trie/set lookup; constraint on forbidden words tricky,✓,,✓,,,Two Pointers
+2537,Count the Number of Good Subarrays,https://leetcode.com/problems/count-the-number-of-good-subarrays/,Hard,Sliding window with pair count maintained via frequency delta; O(n),✓,✓,✓,,,Two Pointers
+1616,Split Two Strings to Make Palindrome,https://leetcode.com/problems/split-two-strings-to-make-palindrome/,Hard,Two-pointer palindrome check from both ends simultaneously on two strings,,✓,✓,,,Two Pointers
+238,Product of Array Except Self,https://leetcode.com/problems/product-of-array-except-self/,Med-Hard,"Follow-up: O(1) extra space using output array as left-pass, then right-pass inline",✓,✓,✓,✓,✓,Prefix/Suffix Sum
+523,Continuous Subarray Sum,https://leetcode.com/problems/continuous-subarray-sum/,Hard,Prefix mod + hashmap; off-by-one on length>=2 causes most failures,✓,✓,✓,,,Prefix/Suffix Sum
+974,Subarray Sums Divisible by K,https://leetcode.com/problems/subarray-sums-divisible-by-k/,Hard,Modular prefix sum; negative mod handling is the tricky part,✓,✓,✓,,,Prefix/Suffix Sum
+1542,Find Longest Awesome Substring,https://leetcode.com/problems/find-longest-awesome-substring/,Hard,XOR bitmask prefix: at most one odd digit = bitmask within 1 flip,✓,✓,,,,Prefix/Suffix Sum
+1915,Number of Wonderful Substrings,https://leetcode.com/problems/number-of-wonderful-substrings/,Hard,10-bit bitmask prefix XOR; count states within 1 bit flip; elegant insight,✓,✓,✓,,,Prefix/Suffix Sum
+2025,Maximum Number of Ways to Partition an Array,https://leetcode.com/problems/maximum-number-of-ways-to-partition-an-array/,Hard,Prefix/suffix sum maps + difference counting for each pivot candidate,✓,✓,✓,,,Prefix/Suffix Sum
+2488,Count Subarrays With Median K,https://leetcode.com/problems/count-subarrays-with-median-k/,Hard,Map elements to +1/-1 relative to k; prefix balance + hashmap counting,✓,✓,✓,,,Prefix/Suffix Sum
+2302,Count Subarrays With Score Less Than K,https://leetcode.com/problems/count-subarrays-with-score-less-than-k/,Hard,Binary search on prefix sum for each right boundary; monotonic property,,✓,✓,,,Prefix/Suffix Sum
+1074,Number of Submatrices That Sum to Target,https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/,Hard,Row-compressed 2D prefix sum + hashmap; O(n^2*m),,✓,✓,,,Prefix/Suffix Sum
+2281,Sum of Total Strength of Wizards,https://leetcode.com/problems/sum-of-total-strength-of-wizards/,Brutal,Prefix of prefix sums + monotonic stack for subarray boundaries; multi-layered,✓,✓,✓,,,Prefix/Suffix Sum
+76,Minimum Window Substring,https://leetcode.com/problems/minimum-window-substring/,Hard,Core window; required for every senior LC prep,✓,✓,✓,✓,✓,Sliding Window
+239,Sliding Window Maximum,https://leetcode.com/problems/sliding-window-maximum/,Hard,Monotonic deque; must know cold; real-time stream interview staple,✓,✓,✓,✓,✓,Sliding Window
+340,Longest Substring with At Most K Distinct,https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/,Hard,Freq map window; asked verbatim at Meta/Google phone screens,✓,✓,✓,✓,,Sliding Window
+992,Subarrays with K Different Integers,https://leetcode.com/problems/subarrays-with-k-different-integers/,Hard,Exact-K = atMost(K) - atMost(K-1); insight-gated problem,✓,✓,✓,,,Sliding Window
+1438,Longest Continuous Subarray Abs Diff <= Limit,https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/,Hard,Two monotonic deques (max + min) sliding together,,✓,✓,,✓,Sliding Window
+1696,Jump Game VI,https://leetcode.com/problems/jump-game-vi/,Hard,Deque DP: max window of size k over DP values; elegant O(n),✓,✓,✓,,,Sliding Window
+2398,Maximum Number of Robots Within Budget,https://leetcode.com/problems/maximum-number-of-robots-within-budget/,Hard,Sliding window with deque for max charge + prefix sum for run cost,✓,✓,✓,,,Sliding Window
+30,Substring with Concatenation of All Words,https://leetcode.com/problems/substring-with-concatenation-of-all-words/,Hard,"Word-level sliding window; |word| starting offsets, each needs own map",✓,✓,✓,,,Sliding Window
+2747,Count Zero Request Servers,https://leetcode.com/problems/count-zero-request-servers/,Hard,Sliding window over time-sorted queries with server tracking,,✓,✓,,,Sliding Window
+480,Sliding Window Median,https://leetcode.com/problems/sliding-window-median/,Brutal,Two heaps with lazy deletion; heap index tracking is brutal to implement,,✓,✓,,✓,Sliding Window
+84,Largest Rectangle in Histogram,https://leetcode.com/problems/largest-rectangle-in-histogram/,Hard,Canonical monotonic stack; all rectangle DP problems trace to this,✓,✓,✓,✓,✓,Stack & Monotonic Stack
+85,Maximal Rectangle,https://leetcode.com/problems/maximal-rectangle/,Hard,Reduce to histogram per row then LC84; 2D compound insight,✓,✓,✓,,✓,Stack & Monotonic Stack
+316,Remove Duplicate Letters,https://leetcode.com/problems/remove-duplicate-letters/,Hard,Greedy monotonic stack with last-occurrence tracking; tricky invariant,✓,✓,✓,,,Stack & Monotonic Stack
+402,Remove K Digits,https://leetcode.com/problems/remove-k-digits/,Hard,Monotonic stack to get lexicographic min; trailing zeros and remainder,✓,✓,✓,✓,,Stack & Monotonic Stack
+456,132 Pattern,https://leetcode.com/problems/132-pattern/,Hard,Monotonic stack from right + running min from left; 3-pointer insight,✓,✓,✓,,,Stack & Monotonic Stack
+907,Sum of Subarray Minimums,https://leetcode.com/problems/sum-of-subarray-minimums/,Hard,Contribution counting with prev/next smaller; stack boundaries critical,✓,✓,✓,,,Stack & Monotonic Stack
+2104,Sum of Subarray Ranges,https://leetcode.com/problems/sum-of-subarray-ranges/,Hard,Max contribution - Min contribution; needs two separate stack passes,✓,,✓,,,Stack & Monotonic Stack
+2289,Steps to Make Array Non-decreasing,https://leetcode.com/problems/steps-to-make-array-non-decreasing/,Hard,Monotonic stack where each node stores rounds needed; subtle accumulation,,✓,✓,,,Stack & Monotonic Stack
+1776,Car Fleet II,https://leetcode.com/problems/car-fleet-ii/,Hard,Monotonic stack from right; collision time with faster-behind slower logic,✓,✓,✓,,,Stack & Monotonic Stack
+2751,Robot Collisions,https://leetcode.com/problems/robot-collisions,Hard,Left right collisions with index tracking and sorting,,,✓,,,Stack & Monotonic Stack
+1130,Minimum Cost Tree From Leaf Values,https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/,Hard,Monotonic stack greedy; counter-intuitive non-DP optimal approach,,✓,✓,,,Stack & Monotonic Stack
+2281,Sum of Total Strength of Wizards,https://leetcode.com/problems/sum-of-total-strength-of-wizards/,Brutal,Prefix of prefix sums + monotonic stack; hardest stack problem on LC,✓,✓,✓,,,Stack & Monotonic Stack
+33,Search in Rotated Sorted Array,https://leetcode.com/problems/search-in-rotated-sorted-array/,Hard,Identify sorted half then recurse; rotation pivot tracking under pressure,✓,✓,✓,✓,✓,Binary Search
+410,Split Array Largest Sum,https://leetcode.com/problems/split-array-largest-sum/,Hard,Binary search on answer space + greedy feasibility check; classic BS-on-answer,✓,✓,✓,✓,,Binary Search
+719,Find K-th Smallest Pair Distance,https://leetcode.com/problems/find-k-th-smallest-pair-distance/,Hard,Sort + BS on distance + two-pointer count of pairs <= mid,✓,✓,✓,,,Binary Search
+774,Minimize Max Distance to Gas Station,https://leetcode.com/problems/minimize-max-distance-to-gas-station/,Hard,BS on real answer with floating-point feasibility check; interval count greedy,,✓,,✓,,Binary Search
+878,Nth Magical Number,https://leetcode.com/problems/nth-magical-number/,Hard,BS + inclusion-exclusion with LCM; modular arithmetic under constraints,,✓,✓,,,Binary Search
+1231,Divide Chocolate,https://leetcode.com/problems/divide-chocolate/,Hard,BS on min sweetness + greedy segment count; premium but conceptually clean,✓,✓,✓,,,Binary Search
+1802,Maximum Value at a Given Index in a Bounded Array,https://leetcode.com/problems/maximum-value-at-a-given-index-in-a-bounded-array/,Hard,BS on peak value + arithmetic sum feasibility for both sides,,✓,✓,,,Binary Search
+2528,Maximize the Minimum Powered City,https://leetcode.com/problems/maximize-the-minimum-powered-city/,Hard,BS on min power + greedy suffix placement of additional stations,,✓,✓,,,Binary Search
+1482,Minimum Number of Days to Make m Bouquets,https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/,Hard,Classic BS on answer; feasibility with consecutive bloom counting,✓,✓,✓,,,Binary Search
+4,Median of Two Sorted Arrays,https://leetcode.com/problems/median-of-two-sorted-arrays/,Brutal,"O(log(min(m,n))) binary search on partition; hardest BS problem, asked cold",✓,✓,✓,✓,✓,Binary Search
+668,Kth Smallest Number in Multiplication Table,https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/,Brutal,BS + counting rows <= mid; row-by-row min trick for exact count,,✓,✓,,,Binary Search
+2071,Maximum Number of Tasks You Can Assign,https://leetcode.com/problems/maximum-number-of-tasks-you-can-assign/,Brutal,BS on task count + greedy deque assignment of pills; multi-layer,✓,✓,✓,,,Binary Search
+23,Merge K Sorted Lists,https://leetcode.com/problems/merge-k-sorted-lists/,Hard,Min-heap of k heads; universally asked in every FAANG loop,✓,✓,✓,✓,✓,Linked Lists
+25,Reverse Nodes in k-Group,https://leetcode.com/problems/reverse-nodes-in-k-group/,Hard,Iterative reversal with careful pointer bookkeeping; clean code under pressure,✓,✓,✓,,✓,Linked Lists
+138,Copy List with Random Pointer,https://leetcode.com/problems/copy-list-with-random-pointer/,Hard,Interleaving approach or hashmap; O(1) space interleave is the hard variant,✓,✓,✓,✓,✓,Linked Lists
+146,LRU Cache,https://leetcode.com/problems/lru-cache/,Hard,DLL + hashmap; sentinel nodes avoid null checks; coding signal problem,✓,✓,✓,✓,✓,Linked Lists
+1171,Remove Zero Sum Consecutive Nodes,https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/,Hard,Prefix sum on LL + hashmap; tricky to handle consecutive zeros,✓,✓,✓,,,Linked Lists
+708,Insert into a Sorted Circular Linked List,https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/,Hard,"Handle wrap-around edge cases: all same, new min, new max, interior",✓,,,✓,,Linked Lists
+2074,Reverse Nodes in Even Length Groups,https://leetcode.com/problems/reverse-nodes-in-even-length-groups/,Hard,Length calculation + selective reversal on LL; tedious pointer management,✓,,,,,Linked Lists
+2816,Double a Number Represented as Linked List,https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/,Hard,Reverse + propagate carry without extra space; simpler but clean code tested,✓,,✓,,,Linked Lists
+432,All O`one Data Structure,https://leetcode.com/problems/all-oone-data-structure/,Brutal,DLL of frequency buckets + two maps; full design interview problem,,✓,✓,,✓,Linked Lists
+460,LFU Cache,https://leetcode.com/problems/lfu-cache/,Brutal,Three maps + min_freq tracking; hardest cache design on LC,✓,,✓,,✓,Linked Lists
+1206,Design Skiplist,https://leetcode.com/problems/design-skiplist/,Brutal,Probabilistic layered list; rare to be asked but devastating if unprepared,,✓,✓,,,Linked Lists
+124,Binary Tree Maximum Path Sum,https://leetcode.com/problems/binary-tree-maximum-path-sum/,Hard,Global max updated during DFS; must not return full path up if it's negative,✓,✓,✓,✓,✓,Trees
+297,Serialize and Deserialize Binary Tree,https://leetcode.com/problems/serialize-and-deserialize-binary-tree/,Hard,BFS or preorder string + stream reader; asked cold at every FAANG onsite,✓,✓,✓,✓,✓,Trees
+652,Find Duplicate Subtrees,https://leetcode.com/problems/find-duplicate-subtrees/,Hard,Canonical serialization hashing in postorder; map of serialized to count,✓,✓,✓,,,Trees
+1028,Recover a Tree From Preorder Traversal,https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/,Hard,Stack-based depth parsing from dashes; reconstruct without explicit tree,,✓,✓,,,Trees
+1373,Maximum Sum BST in Binary Tree,https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/,Hard,"Post-order: validate BST subtree + track sum, min, max; 4-tuple return",✓,✓,✓,,,Trees
+2458,Height of Binary Tree After Subtree Removal Queries,https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries/,Hard,Pre-compute best alternative heights at each depth; two DFS passes,✓,✓,✓,,,Trees
+2096,Step-By-Step Directions From Binary Tree Node to Another,https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/,Hard,LCA + path reconstruction with direction encoding; clean code matters,✓,✓,✓,,,Trees
+437,Path Sum III,https://leetcode.com/problems/path-sum-iii/,Hard,Prefix sum on root-to-node paths + hashmap; O(n) not O(n^2),✓,✓,✓,,,Trees
+428,Serialize and Deserialize N-ary Tree,https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/,Brutal,Children-count encoding + DFS reconstruction; harder variant of 297,✓,,✓,,,Trees
+968,Binary Tree Cameras,https://leetcode.com/problems/binary-tree-cameras/,Brutal,Greedy post-order DFS with 3-state; optimal camera placement hard to derive,✓,✓,✓,,,Trees
+1483,Kth Ancestor of a Tree Node,https://leetcode.com/problems/kth-ancestor-of-a-tree-node/,Brutal,"Binary lifting (sparse table on tree); log(n) per query, O(n log n) build",✓,✓,✓,,,Trees
+1569,Number of Ways to Reorder Array to Get Same BST,https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/,Brutal,"Recursive combinatorics: C(left+right, left) x subtree counts; modular math",,✓,✓,,,Trees
+218,The Skyline Problem,https://leetcode.com/problems/the-skyline-problem/,Hard,Max-heap of active buildings with lazy removal; event sweep + critical points,✓,✓,✓,,✓,Heaps / Priority Queues
+295,Find Median from Data Stream,https://leetcode.com/problems/find-median-from-data-stream/,Hard,Two heaps; rebalance on every insert; foundational streaming data problem,✓,✓,✓,,✓,Heaps / Priority Queues
+358,Rearrange String k Distance Apart,https://leetcode.com/problems/rearrange-string-k-distance-apart/,Hard,Max-heap + cooldown queue of size k; placement with frequency decrement,,✓,✓,,✓,Heaps / Priority Queues
+407,Trapping Rain Water II,https://leetcode.com/problems/trapping-rain-water-ii/,Hard,Min-heap BFS (Dijkstra-like); expand from boundaries inward with water level,✓,✓,✓,,,Heaps / Priority Queues
+632,Smallest Range Covering Elements from K Lists,https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/,Hard,Min-heap of current elements + running max; advance from smallest list,✓,✓,✓,,,Heaps / Priority Queues
+759,Employee Free Time,https://leetcode.com/problems/employee-free-time/,Hard,Heap merge of all intervals then gap detection; or sort + linear scan,,✓,,✓,✓,Heaps / Priority Queues
+1383,Maximum Performance of a Team,https://leetcode.com/problems/maximum-performance-of-a-team/,Hard,Sort by efficiency desc; min-heap of speed size k; classic greedy+heap combo,✓,✓,✓,,,Heaps / Priority Queues
+2163,Minimum Difference in Sums After Removal of Elements,https://leetcode.com/problems/minimum-difference-in-sums-after-removal-of-elements/,Hard,Max-heap prefix min-sums + min-heap suffix max-sums; combine at split,✓,✓,✓,,,Heaps / Priority Queues
+2402,Meeting Rooms III,https://leetcode.com/problems/meeting-rooms-iii/,Hard,"Two heaps: available rooms + in-use (end_time, room_id); priority logic",✓,✓,✓,✓,,Heaps / Priority Queues
+2542,Maximum Subsequence Score,https://leetcode.com/problems/maximum-subsequence-score/,Hard,Sort by second array desc; min-heap of size k on first array; running sum,✓,✓,✓,,,Heaps / Priority Queues
+480,Sliding Window Median,https://leetcode.com/problems/sliding-window-median/,Brutal,Two heaps + lazy deletion via removal set; rebalance on every slide,,✓,✓,,✓,Heaps / Priority Queues
+857,Minimum Cost to Hire K Workers,https://leetcode.com/problems/minimum-cost-to-hire-k-workers/,Brutal,Sort by wage/quality ratio; max-heap of quality sum; O(n log k) insight,,✓,✓,,✓,Heaps / Priority Queues
+1675,Minimize Deviation in Array,https://leetcode.com/problems/minimize-deviation-in-array/,Brutal,"Max-heap: multiply odds to make even, then divide; track running min",,✓,✓,,,Heaps / Priority Queues
+51,N-Queens,https://leetcode.com/problems/n-queens/,Hard,"Diagonal bitmask backtrack; 3 bitsets (col, diag1, diag2); O(n!) pruned",✓,✓,✓,,✓,Backtracking
+140,Word Break II,https://leetcode.com/problems/word-break-ii/,Hard,Memoized backtrack; result lists memoized at each index; exponential without memo,✓,✓,✓,✓,✓,Backtracking
+212,Word Search II,https://leetcode.com/problems/word-search-ii/,Hard,Trie-pruned DFS backtrack; delete found words from Trie to avoid duplicate paths,✓,✓,✓,,,Backtracking
+282,Expression Add Operators,https://leetcode.com/problems/expression-add-operators/,Hard,Backtrack with prev_operand tracking for * undo; overflow with long arithmetic,✓,✓,✓,,,Backtracking
+301,Remove Invalid Parentheses,https://leetcode.com/problems/remove-invalid-parentheses/,Hard,BFS level-by-level removal; or backtrack with counts; tricky dedup,✓,,✓,,,Backtracking
+980,Unique Paths III,https://leetcode.com/problems/unique-paths-iii/,Hard,Bitmask backtrack on grid; visit all non-obstacle cells exactly once,,✓,✓,,,Backtracking
+1255,Maximum Score Words Formed by Letters,https://leetcode.com/problems/maximum-score-words-formed-by-letters/,Hard,Bitmask subset backtrack; check feasibility per letter frequency,✓,✓,✓,,,Backtracking
+37,Sudoku Solver,https://leetcode.com/problems/sudoku-solver/,Brutal,Constraint propagation + backtrack; bitmask row/col/box for O(1) valid check,✓,✓,✓,,,Backtracking
+425,Word Squares,https://leetcode.com/problems/word-squares/,Brutal,Trie prefix pruning in backtrack; word[i][j]=word[j][i] constraint,,✓,,,,Backtracking
+1349,Maximum Students Taking Exam,https://leetcode.com/problems/maximum-students-taking-exam/,Brutal,Bitmask DP row by row; valid state masks + cross-row diagonal constraints,,✓,✓,,,Backtracking
+2060,Check if Original String Exists Given Two Encoded Strings,https://leetcode.com/problems/check-if-an-original-string-exists-given-two-encoded-strings/,Brutal,"Backtrack on two pointers with offset difference state; memoize (i,j,diff)",,✓,,,,Backtracking
+212,Word Search II,https://leetcode.com/problems/word-search-ii/,Hard,Trie insert all words; DFS backtrack with in-place mark; delete from Trie on found,✓,✓,✓,,,Trie
+421,Maximum XOR of Two Numbers,https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/,Hard,Binary Trie from MSB; greedy opposite-bit traversal for max XOR,✓,✓,✓,,,Trie
+472,Concatenated Words,https://leetcode.com/problems/concatenated-words/,Hard,Trie + DP or DFS memo; word must be formed by 2+ shorter words in set,✓,✓,✓,,,Trie
+642,Design Search Autocomplete System,https://leetcode.com/problems/design-search-autocomplete-system/,Hard,Trie nodes store top-3 by freq; DFS at end of input or return path results,✓,✓,✓,✓,✓,Trie
+745,Prefix and Suffix Search,https://leetcode.com/problems/prefix-and-suffix-search/,Hard,Combined Trie key: suffix#word; insert all suffix+word combos per word,,✓,✓,,,Trie
+1032,Stream of Characters,https://leetcode.com/problems/stream-of-characters/,Hard,Aho-Corasick (reversed Trie + BFS fail links); match suffixes in stream,✓,✓,✓,,,Trie
+2416,Sum of Prefix Scores of Strings,https://leetcode.com/problems/sum-of-prefix-scores-of-strings/,Hard,Trie with passing-count at each node; sum counts on root-to-leaf path,✓,✓,✓,,,Trie
+336,Palindrome Pairs,https://leetcode.com/problems/palindrome-pairs/,Brutal,Trie or hashmap: split each word into prefix/suffix; check reversed counterpart palindrome,,✓,✓,,,Trie
+425,Word Squares,https://leetcode.com/problems/word-squares/,Brutal,Trie with prefix to words index; backtrack with prefix constraint,,✓,,,,Trie
+1707,Maximum XOR With an Element From Array,https://leetcode.com/problems/maximum-xor-with-an-element-from-array/,Brutal,Offline queries sorted by limit; add elements <= limit to Trie then query XOR,,✓,✓,,,Trie
+1803,Count Pairs With XOR in a Range,https://leetcode.com/problems/count-pairs-with-xor-in-a-range/,Brutal,Trie counting: pairs with XOR < high minus pairs < low; prefix node counts,,✓,✓,,,Trie
+127,Word Ladder,https://leetcode.com/problems/word-ladder/,Hard,BFS with wildcard neighbor generation; O(M^2*N) with pattern caching,✓,✓,✓,✓,✓,Graphs
+269,Alien Dictionary,https://leetcode.com/problems/alien-dictionary/,Hard,Topological sort from adjacent word char pairs; cycle = invalid,✓,✓,✓,✓,,Graphs
+310,Minimum Height Trees,https://leetcode.com/problems/minimum-height-trees/,Hard,Topological leaf-removal (like BFS from leaves inward); 1 or 2 roots remain,✓,✓,✓,,,Graphs
+329,Longest Increasing Path in Matrix,https://leetcode.com/problems/longest-increasing-path-in-a-matrix/,Hard,DFS + memoization on DAG; no need for visited since increasing direction prevents cycles,✓,✓,✓,✓,✓,Graphs
+399,Evaluate Division,https://leetcode.com/problems/evaluate-division/,Hard,Weighted graph BFS/DFS; edge weight = ratio; product of path weights,✓,✓,✓,✓,,Graphs
+815,Bus Routes,https://leetcode.com/problems/bus-routes/,Hard,BFS on route-level graph (not stop-level); stops to routes map to build hypergraph,✓,✓,,,,Graphs
+1192,Critical Connections in a Network,https://leetcode.com/problems/critical-connections-in-a-network/,Hard,Tarjan bridge-finding; low-link values; asked at Amazon infra rounds,✓,,✓,,✓,Graphs
+1345,Jump Game IV,https://leetcode.com/problems/jump-game-iv/,Hard,BFS with value to indices grouping; clear groups after visiting to avoid TLE,✓,✓,✓,,,Graphs
+2876,Count Visited Nodes in a Directed Graph,https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph/,Hard,Functional graph: detect cycle nodes then back-propagate distances,✓,✓,✓,,,Graphs
+1514,Path with Maximum Probability,https://leetcode.com/problems/path-with-maximum-probability/,Hard,Dijkstra with max-heap on probability; log-transform to additive if needed,,✓,✓,✓,,Graphs
+126,Word Ladder II,https://leetcode.com/problems/word-ladder-ii/,Brutal,BFS shortest path + DFS path reconstruction; hardest BFS problem asked,✓,✓,✓,,,Graphs
+2097,Valid Arrangement of Pairs,https://leetcode.com/problems/valid-arrangement-of-pairs/,Brutal,Eulerian path: find start node (out-in=1); Hierholzer DFS post-order,,✓,✓,,,Graphs
+332,Reconstruct Itinerary,https://leetcode.com/problems/reconstruct-itinerary/,Hard,Hierholzer Eulerian path; lexicographic ordering via sorted adjacency list,✓,✓,,✓,,Advanced Graphs
+778,Swim in Rising Water,https://leetcode.com/problems/swim-in-rising-water/,Hard,Dijkstra on grid (cost = max cell value on path); or binary search + BFS,,✓,✓,,,Advanced Graphs
+1293,Shortest Path in Grid with Obstacles Elimination,https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/,Hard,"BFS with state (x,y,k_remaining); visited[x][y][k] to prune",✓,✓,✓,,,Advanced Graphs
+1368,Minimum Cost to Make at Least One Valid Path in Grid,https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/,Hard,"0-1 BFS: free move along arrow=0 cost, changing direction=1 cost",,✓,✓,,,Advanced Graphs
+2492,Minimum Score of Path Between Two Cities,https://leetcode.com/problems/minimum-score-of-a-path-between-two-cities/,Hard,DSU or BFS to find all edges in connected component of 1; min edge weight,,✓,✓,,,Advanced Graphs
+2577,Minimum Time to Visit a Cell In a Grid,https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/,Hard,Dijkstra with wait-time parity trick; must handle forced back-and-forth,✓,✓,✓,,,Advanced Graphs
+882,Reachable Nodes In Subdivided Graph,https://leetcode.com/problems/reachable-nodes-in-subdivided-graph/,Hard,Dijkstra; for each edge count reachable sub-nodes from each end within budget,,✓,,,,Advanced Graphs
+753,Cracking the Safe,https://leetcode.com/problems/cracking-the-safe/,Brutal,De Bruijn sequence via Eulerian circuit on (n-1)-digit nodes; DFS post-order,,✓,,,,Advanced Graphs
+1489,Find Critical and Pseudo-Critical Edges in MST,https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/,Brutal,Kruskal MST weight; brute force include/exclude each edge; O(E^2 * alpha(V)),,✓,✓,,,Advanced Graphs
+2203,Minimum Weighted Subgraph With Required Paths,https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths/,Brutal,"3 Dijkstra runs (src1, src2, dst reversed); combine at each meeting node",✓,✓,✓,,,Advanced Graphs
+305,Number of Islands II,https://leetcode.com/problems/number-of-islands-ii/,Hard,Online DSU with coordinate hashing; union 4 neighbors on each add; keep rolling count increment. when merged decrement (union succeed),✓,✓,✓,,,DSU
+399,Evaluate Division,https://leetcode.com/problems/evaluate-division/,Hard,Weighted DSU with ratio propagation; find product of path from a to b,✓,✓,✓,✓,,DSU
+685,Redundant Connection II,https://leetcode.com/problems/redundant-connection-ii/,Hard,DSU + directed edge case analysis; one of 3 structural scenarios. A rooted tree has only one node with 0 incoming,,✓,✓,,,DSU
+765,Couples Holding Hands,https://leetcode.com/problems/couples-holding-hands/,Hard,DSU cycle counting; swaps = n_pairs - components; elegant insight,,✓,✓,,,DSU
+839,Similar String Groups,https://leetcode.com/problems/similar-string-groups/,Hard,DSU with O(n^2 * L) union on similarity check; small n saves it,✓,✓,✓,,,DSU
+924,Minimize Malware Spread,https://leetcode.com/problems/minimize-malware-spread/,Hard,DSU component sizes; find component with only one initial infected node,,✓,✓,,,DSU
+1202,Smallest String With Swaps,https://leetcode.com/problems/smallest-string-with-swaps/,Hard,DSU components then sort chars within each component independently,✓,,✓,,,DSU
+1579,Remove Max Edges to Keep Graph Fully Traversable,https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/,Hard,"Two DSUs (Alice, Bob); add type-3 first; count redundant edges across both",✓,✓,✓,,,DSU
+2709,Greatest Common Divisor Traversal,https://leetcode.com/problems/greatest-common-divisor-traversal/,Hard,DSU via shared prime factors; similar to LC 952 but check full connectivity,✓,✓,✓,,,DSU
+952,Largest Component Size by Common Factor,https://leetcode.com/problems/largest-component-size-by-common-factor/,Brutal,DSU: union each number with all its prime factors; factor to number links,,✓,✓,,,DSU
+1632,Rank Transform of a Matrix,https://leetcode.com/problems/rank-transform-of-a-matrix/,Brutal,Group cells by value; DSU cells sharing row/col; rank = max rank in component + 1,,✓,✓,,,DSU
+132,Palindrome Partitioning II,https://leetcode.com/problems/palindrome-partitioning-ii/,Hard,DP min cuts + Manacher or expand-around-center for palindrome check; O(n^2),✓,✓,✓,,,1-D DP
+264,Ugly Number II,https://leetcode.com/problems/ugly-number-ii/,Hard,"Three-pointer DP; separately track next multiple of 2, 3, 5; merge step",✓,✓,✓,,,1-D DP
+639,Decode Ways II,https://leetcode.com/problems/decode-ways-ii/,Hard,"DP with * wildcard cases: 1-9 for single, 11-19/21-26 for double; modular",✓,✓,✓,,,1-D DP
+801,Minimum Swaps To Make Sequences Increasing,https://leetcode.com/problems/minimum-swaps-to-make-sequences-increasing/,Hard,DP with swap/keep states; transitions depend on both strict increase conditions,✓,✓,✓,,,1-D DP
+940,Distinct Subsequences II,https://leetcode.com/problems/distinct-subsequences-ii/,Hard,DP end[c] = total valid subsequences ending in char c; subtract on revisit,,✓,✓,,,1-D DP
+1027,Longest Arithmetic Subsequence,https://leetcode.com/problems/longest-arithmetic-subsequence/,Hard,DP hashmap per index: dp[i][diff] = length; O(n^2) with map per element,✓,✓,✓,,,1-D DP
+1425,Constrained Subsequence Sum,https://leetcode.com/problems/constrained-subsequence-sum/,Hard,Deque DP: keep max dp value in window of size k; monotonic deque O(n),✓,✓,✓,,,1-D DP
+1048,Longest String Chain,https://leetcode.com/problems/longest-string-chain/,Hard,"Sort by length; DP: for each word try removing each char, lookup predecessor",✓,✓,✓,,✓,1-D DP
+2140,Solving Questions With Brainpower,https://leetcode.com/problems/solving-questions-with-brainpower/,Hard,Reverse DP; dp[i] = max from i onwards; either skip or take + dp[i+b+1],✓,✓,✓,,,1-D DP
+2369,Check if There is a Valid Partition,https://leetcode.com/problems/check-if-there-is-a-valid-partition-for-the-array/,Hard,"DP boolean; 3 base cases: pair equal, triple equal, triple consecutive",✓,,✓,,,1-D DP
+474,Ones and Zeroes,https://leetcode.com/problems/ones-and-zeroes/,Hard,"2D 0-1 knapsack (m zeros, n ones budget); iterate backwards to avoid reuse",✓,✓,✓,,,Knapsack DP
+494,Target Sum,https://leetcode.com/problems/target-sum/,Hard,"Reduce to subset-sum: P - N = target, P + N = sum; find P; or 2D DP",✓,✓,✓,,,Knapsack DP
+1049,Last Stone Weight II,https://leetcode.com/problems/last-stone-weight-ii/,Hard,Partition into two groups min |S1-S2|; 0-1 knapsack up to sum/2,✓,✓,✓,,,Knapsack DP
+1155,Number of Dice Rolls With Target Sum,https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/,Hard,Bounded knapsack: dp[i][j] = ways using i dice summing to j; rolling window,,✓,✓,,,Knapsack DP
+1449,Form Largest Integer With Digits That Add Up to Target,https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target/,Hard,"Unbounded knapsack maximizing length first, then lexicographic digit; two-pass",,✓,✓,,,Knapsack DP
+2218,Maximum Value of K Coins From Piles,https://leetcode.com/problems/maximum-value-of-k-coins-from-piles/,Hard,"Prefix sum per pile + 2D knapsack: dp[i][j] = best using first i piles, j coins",✓,✓,✓,,,Knapsack DP
+2585,Number of Ways to Earn Points,https://leetcode.com/problems/number-of-ways-to-earn-points/,Hard,Bounded knapsack: each type has count limit; group knapsack variant,,✓,✓,,,Knapsack DP
+2915,Length of Longest Subsequence That Sums to Target,https://leetcode.com/problems/length-of-the-longest-subsequence-that-sums-to-target/,Hard,0-1 knapsack tracking max length; -inf for unreachable states,✓,,✓,,,Knapsack DP
+879,Profitable Schemes,https://leetcode.com/problems/profitable-schemes/,Brutal,2D bounded knapsack: dp[members][profit]; profit dimension capped at minProfit,,✓,✓,,,Knapsack DP
+1655,Distribute Repeating Integers,https://leetcode.com/problems/distribute-repeating-integers/,Brutal,Bitmask DP on customer subsets; knapsack over quantities to cover each subset,,✓,✓,,,Knapsack DP
+300,Longest Increasing Subsequence,https://leetcode.com/problems/longest-increasing-subsequence/,Hard,Must know O(n log n) patience sort; O(n^2) not acceptable at FAANG,✓,✓,✓,✓,✓,LIS Pattern
+368,Largest Divisible Subset,https://leetcode.com/problems/largest-divisible-subset/,Hard,LIS on sorted array with divisibility; track parent pointers for reconstruction,,✓,✓,,,LIS Pattern
+646,Maximum Length of Pair Chain,https://leetcode.com/problems/maximum-length-of-pair-chain/,Hard,Sort by end; greedy O(n log n) or LIS on end values; interval-LIS fusion,✓,✓,✓,,,LIS Pattern
+673,Number of Longest Increasing Subsequence,https://leetcode.com/problems/number-of-longest-increasing-subsequence/,Hard,DP with count array alongside length array; carefully update both,✓,✓,✓,,,LIS Pattern
+1671,Min Removals to Make Mountain Array,https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/,Hard,LIS from left + LIS from right; peak must have both > 0; O(n log n),✓,✓,✓,,,LIS Pattern
+1964,Find the Longest Valid Obstacle Course,https://leetcode.com/problems/find-the-longest-valid-obstacle-course-at-each-position/,Hard,Online LIS (non-strict) using bisect_right; answer per position,✓,✓,✓,,,LIS Pattern
+2111,Minimum Operations to Make Array K-Increasing,https://leetcode.com/problems/minimum-operations-to-make-array-k-increasing/,Hard,Split into k subsequences; each needs min replacements = len - LIS length,,✓,✓,,,LIS Pattern
+2370,Longest Ideal Subsequence,https://leetcode.com/problems/longest-ideal-subsequence/,Hard,DP with freq array over 26 chars; range max query O(26) per char = O(26n),✓,✓,✓,,,LIS Pattern
+1626,Best Team With No Conflicts,https://leetcode.com/problems/best-team-with-no-conflicts/,Hard,Sort by age then score; LIS variant maximizing sum instead of length,✓,✓,✓,,,LIS Pattern
+354,Russian Doll Envelopes,https://leetcode.com/problems/russian-doll-envelopes/,Brutal,"Sort w asc, h desc; LIS on h only; desc trick avoids counting same-width",✓,✓,✓,,,LIS Pattern
+2407,Longest Increasing Subsequence II,https://leetcode.com/problems/longest-increasing-subsequence-ii/,Brutal,Segment tree range-max query + update; O(n log n) but segment tree required,,✓,✓,,,LIS Pattern
+375,Guess Number Higher or Lower II,https://leetcode.com/problems/guess-number-higher-or-lower-ii/,Hard,"Minimax interval DP; worst-case cost when guessing k in [i,j]",,✓,✓,,,Interval DP
+486,Predict the Winner,https://leetcode.com/problems/predict-the-winner/,Hard,Interval DP game theory; dp[i][j] = max score difference for current player,✓,✓,✓,,✓,Interval DP
+664,Strange Printer,https://leetcode.com/problems/strange-printer/,Hard,"Interval DP; if s[i]==s[j], extend i's print to j; O(n^3)",✓,✓,✓,,,Interval DP
+1000,Minimum Cost to Merge Stones,https://leetcode.com/problems/minimum-cost-to-merge-stones/,Hard,Interval DP: only merge when (r-l) % (K-1) == 0; O(n^3/K),,✓,✓,,,Interval DP
+1039,Minimum Score Triangulation of Polygon,https://leetcode.com/problems/minimum-score-triangulation-of-polygon/,Hard,"Interval DP on polygon vertices; fix one edge, pick apex k inside",,✓,✓,,,Interval DP
+1246,Palindrome Removal,https://leetcode.com/problems/palindrome-removal/,Hard,"Interval DP; dp[i][j]; if palindrome extend, else split; base on a[i]==a[j]",,✓,✓,,,Interval DP
+1547,Minimum Cost to Cut a Stick,https://leetcode.com/problems/minimum-cost-to-cut-a-stick/,Hard,"Classic interval DP; add endpoints; dp[i][j] = min cost to cut segment [i,j]",✓,✓,✓,,,Interval DP
+312,Burst Balloons,https://leetcode.com/problems/burst-balloons/,Brutal,"Interval DP: last balloon to burst, not first; dp[i][j] = max coins for range",✓,✓,✓,,,Interval DP
+471,Encode String with Shortest Length,https://leetcode.com/problems/encode-string-with-shortest-length/,Brutal,Interval DP + KMP repeat detection; encode[i][j] via split or repeat compression,,✓,,,,Interval DP
+546,Remove Boxes,https://leetcode.com/problems/remove-boxes/,Brutal,3D interval DP: dp[l][r][k] = max points with k same-color boxes appended left,,✓,✓,,,Interval DP
+730,Count Different Palindromic Subsequences,https://leetcode.com/problems/count-different-palindromic-subsequences/,Brutal,Interval DP with char-specific expansion; handle duplicate and disjoint cases,,✓,,,,Interval DP
+72,Edit Distance,https://leetcode.com/problems/edit-distance/,Hard,Classic 2D DP; follow-up: O(n) space rolling array and path reconstruction,✓,✓,✓,✓,✓,String DP
+97,Interleaving String,https://leetcode.com/problems/interleaving-string/,Hard,2D DP dp[i][j]: can form s3[:i+j] using s1[:i] and s2[:j]; tricky init,✓,✓,✓,,,String DP
+115,Distinct Subsequences,https://leetcode.com/problems/distinct-subsequences/,Hard,DP counting: dp[i][j] = ways s[:i] contains t[:j] as subsequence; large numbers,✓,✓,✓,,,String DP
+132,Palindrome Partitioning II,https://leetcode.com/problems/palindrome-partitioning-ii/,Hard,1D DP min cuts; precompute palindrome table via expand or Manacher,✓,✓,✓,,,String DP
+140,Word Break II,https://leetcode.com/problems/word-break-ii/,Hard,Memoized DFS; cache list of sentences from each position; exponential without memo,✓,✓,✓,✓,✓,String DP
+1312,Minimum Insertion Steps to Make a String Palindrome,https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/,Hard,"LCS of s and reverse(s); insertions = n - LCS(s, rev_s); neat reduction",✓,✓,✓,,,String DP
+1458,Max Dot Product of Two Subsequences,https://leetcode.com/problems/max-dot-product-of-two-subsequences/,Hard,"LCS variant; dp[i][j] = max dot product using subsequences ending at i,j",,✓,✓,,,String DP
+1143,Longest Common Subsequence,https://leetcode.com/problems/longest-common-subsequence/,Hard,Foundation; FAANG asks with reconstruction or n^2 to n log n optimization follow-up,✓,✓,✓,✓,✓,String DP
+10,Regular Expression Matching,https://leetcode.com/problems/regular-expression-matching/,Brutal,"DP on (i,j) pairs; * means 0 or more of preceding; 4 transition cases",✓,✓,✓,,,String DP
+44,Wildcard Matching,https://leetcode.com/problems/wildcard-matching/,Brutal,DP similar to 10 but * matches any sequence; simpler transitions than regex,✓,✓,✓,,,String DP
+1639,Number of Ways to Form Target String From Dictionary,https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/,Brutal,DP: col_freq[j][c] precomputed; dp[i][j] = ways to form target[:i] using cols[:j],✓,✓,✓,,,String DP
+174,Dungeon Game,https://leetcode.com/problems/dungeon-game/,Hard,Reverse DP bottom-right to top-left; forward DP fails due to negative spiral,✓,✓,✓,,,2-D Grid DP
+221,Maximal Square,https://leetcode.com/problems/maximal-square/,Hard,"DP dp[i][j] = min(top, left, diag)+1; must handle edge and corner cells",✓,✓,✓,,✓,2-D Grid DP
+329,Longest Increasing Path in Matrix,https://leetcode.com/problems/longest-increasing-path-in-a-matrix/,Hard,DFS + memo; no cycle possible due to strict increase; topological order implicit,✓,✓,✓,✓,✓,2-D Grid DP
+363,Max Sum of Rectangle No Larger Than K,https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/,Hard,Compress rows to 1D; binary search on sorted prefix sums for each column pair,,✓,✓,,✓,2-D Grid DP
+1301,Number of Paths with Max Score,https://leetcode.com/problems/number-of-paths-with-max-score/,Hard,2D DP tracking both max score and count; modular count with -inf for blocked,,✓,✓,,,2-D Grid DP
+1463,Cherry Pickup II,https://leetcode.com/problems/cherry-pickup-ii/,Hard,"3D DP top-down: two robots (c1,c2) per row; 9 transitions per state",,✓,✓,,,2-D Grid DP
+2328,Number of Increasing Paths in a Grid,https://leetcode.com/problems/number-of-increasing-paths-in-a-grid/,Hard,Topological sort by value + DP; or DFS+memo; count paths ending at each cell,✓,✓,✓,,,2-D Grid DP
+2435,Paths in Matrix Whose Sum Divisible by K,https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/,Hard,DP dp[i][j][r] = paths mod k = r; only right/down moves,,✓,✓,,,2-D Grid DP
+2267,Check if Valid Parentheses String Path,https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/,Hard,"DP on (i,j): set of valid open-paren balances reachable; bitmask compress",,✓,✓,,,2-D Grid DP
+64,Minimum Path Sum,https://leetcode.com/problems/minimum-path-sum/,Hard,"Core grid DP; FAANG asks with obstacles, k-blocked cells, or 3D variants",✓,✓,✓,✓,,2-D Grid DP
+741,Cherry Pickup,https://leetcode.com/problems/cherry-pickup/,Brutal,"3D DP: two paths simultaneously; dp[t][r1][r2]; r2 derived from t,r1,r2",,✓,✓,,,2-D Grid DP
+123,Best Time to Buy and Sell Stock III,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/,Hard,Exactly 2 transactions; 4 states or prefix/suffix max; state machine DP,✓,✓,✓,,✓,Decision DP
+188,Best Time to Buy and Sell Stock IV,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/,Hard,k transactions; collapse when k>=n/2; O(nk) DP state machine,✓,✓,✓,,✓,Decision DP
+403,Frog Jump,https://leetcode.com/problems/frog-jump/,Hard,Hashmap DP: stone to set of jump sizes to reach it; BFS-like expansion,✓,✓,✓,,,Decision DP
+514,Freedom Trail,https://leetcode.com/problems/freedom-trail/,Hard,2D DP: dp[i][j] = min steps to spell key[:i] with ring at position j,,✓,✓,,,Decision DP
+600,Non-negative Integers Without Consecutive Ones,https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/,Hard,Digit DP on binary representation; Fibonacci-based counting approach also works,,✓,✓,,,Decision DP
+871,Minimum Number of Refueling Stops,https://leetcode.com/problems/minimum-number-of-refueling-stops/,Hard,"Greedy + max-heap: add all reachable stations, pop max when out of fuel",,✓,✓,✓,,Decision DP
+1235,Maximum Profit in Job Scheduling,https://leetcode.com/problems/maximum-profit-in-job-scheduling/,Hard,Sort by end; binary search for last non-overlapping job; classic interval DP,✓,✓,✓,✓,✓,Decision DP
+2830,Maximize the Profit as the Salesman,https://leetcode.com/problems/maximize-the-profit-as-the-salesman/,Hard,DP + binary search for non-overlapping intervals; similar to job scheduling,✓,✓,✓,,,Decision DP
+691,Stickers to Spell Word,https://leetcode.com/problems/stickers-to-spell-word/,Brutal,Bitmask DP on target chars; dp[mask] = min stickers; BFS or bottom-up,,✓,✓,,,Decision DP
+818,Race Car,https://leetcode.com/problems/race-car/,Brutal,"BFS/DP; state = (pos, speed); or DP with acceleration then reverse patterns",,✓,✓,,,Decision DP
+1531,String Compression II,https://leetcode.com/problems/string-compression-ii/,Brutal,DP dp[i][k] = min length compressing s[:i] with k deletions; group-run insight,✓,✓,✓,,,Decision DP
+45,Jump Game II,https://leetcode.com/problems/jump-game-ii/,Hard,O(n) greedy; track current reach and next reach; increment jumps at boundary,✓,✓,✓,✓,✓,Greedy
+134,Gas Station,https://leetcode.com/problems/gas-station/,Hard,Single pass: reset start when tank < 0; total sum >= 0 guarantees solution,✓,✓,✓,✓,✓,Greedy
+406,Queue Reconstruction by Height,https://leetcode.com/problems/queue-reconstruction-by-height/,Hard,Sort by height desc then k asc; insert at index k; shorter people don't affect taller,✓,✓,✓,,,Greedy
+621,Task Scheduler,https://leetcode.com/problems/task-scheduler/,Hard,Math formula with max-freq task; or greedy simulation with heap,✓,✓,✓,✓,✓,Greedy
+630,Course Schedule III,https://leetcode.com/problems/course-schedule-iii/,Hard,Sort by deadline; max-heap of durations; swap if current > top and saves time,✓,✓,✓,,,Greedy
+763,Partition Labels,https://leetcode.com/problems/partition-labels/,Hard,Last occurrence map; expand window greedily; O(n) single pass,✓,✓,✓,,,Greedy
+1326,Minimum Number of Taps to Water Garden,https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/,Hard,Reduce to Jump Game II; for each position track farthest reach; O(n),✓,✓,✓,,,Greedy
+1353,Maximum Number of Events That Can Be Attended,https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/,Hard,Greedy day-by-day; min-heap of end days; attend earliest-ending available,✓,✓,✓,,,Greedy
+1642,Furthest Building You Can Reach,https://leetcode.com/problems/furthest-building-you-can-reach/,Hard,Greedy: use ladders for top-k climbs; min-heap to swap ladder with bricks,✓,✓,✓,✓,,Greedy
+2136,Earliest Possible Day of Full Bloom,https://leetcode.com/problems/earliest-possible-day-of-full-bloom/,Hard,Sort by grow time desc; plant greedily; proof: swapping adjacent never improves,✓,✓,✓,,,Greedy
+2182,Construct String With Repeat Limit,https://leetcode.com/problems/construct-string-with-repeat-limit/,Hard,"Greedy: use largest char up to limit times, then one of next; max-heap",✓,✓,✓,,,Greedy
+56,Merge Intervals,https://leetcode.com/problems/merge-intervals/,Hard,"Foundation; FAANG asks with follow-ups: stream version, weighted, k-way",✓,✓,✓,✓,✓,Intervals
+57,Insert Interval,https://leetcode.com/problems/insert-interval/,Hard,"Three-phase scan: before, overlap, after; O(n) single pass",✓,✓,✓,✓,✓,Intervals
+253,Meeting Rooms II,https://leetcode.com/problems/meeting-rooms-ii/,Hard,Min-heap of end times; or event sweep; universally asked at every company,✓,✓,✓,✓,✓,Intervals
+352,Data Stream as Disjoint Intervals,https://leetcode.com/problems/data-stream-as-disjoint-intervals/,Hard,Sorted map (TreeMap); merge with left and right neighbors on each add,,✓,✓,,✓,Intervals
+435,Non-overlapping Intervals,https://leetcode.com/problems/non-overlapping-intervals/,Hard,Sort by end; greedy keep non-overlapping; n - kept = min removals,✓,✓,✓,,,Intervals
+759,Employee Free Time,https://leetcode.com/problems/employee-free-time/,Hard,Merge all intervals then find gaps; or min-heap multi-way merge,,✓,,✓,✓,Intervals
+1235,Maximum Profit in Job Scheduling,https://leetcode.com/problems/maximum-profit-in-job-scheduling/,Hard,Sort + binary search + 1D DP; non-overlapping interval selection with weights,✓,✓,✓,✓,✓,Intervals
+715,Range Module,https://leetcode.com/problems/range-module/,Brutal,Sorted map with interval merging/splitting; add/remove/query O(log n) amortized,,✓,✓,,✓,Intervals
+1851,Minimum Interval to Include Each Query,https://leetcode.com/problems/minimum-interval-to-include-each-query/,Brutal,Offline sort queries + min-heap of active intervals; remove expired on query,✓,✓,✓,,,Intervals
+2276,Count Integers in Intervals,https://leetcode.com/problems/count-integers-in-intervals/,Brutal,Interval tree or sorted map with merge; maintain total covered count dynamically,,✓,✓,,✓,Intervals
+2213,Longest Substring of One Repeating Character,https://leetcode.com/problems/longest-substring-of-one-repeating-character/,Brutal,Segment tree with lazy propagation; interval updates + max-run queries,,✓,✓,,,Intervals

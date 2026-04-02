@@ -422,3 +422,8 @@ h1 {
     grid-column: auto;
   }
 }
+
+.problem-name a {
+  color: inherit;
+  text-decoration: underline;
+}
